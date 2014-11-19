@@ -1,0 +1,45 @@
+
+<div class="page-header">
+  <h1>Calendar <small>sibext.com</small></h1>
+
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="well controls">
+        <div class="container">
+          <div class="row row-centered">
+            <div class="col-xs-6 col-centered">
+              <%= link_to calendar_path(date: @date - 1.year), class: "btn btn-default" do %>
+              <i class="glyphicon glyphicon-backward"></i>
+              <% end %>
+              <%= "#{@date.year}" %>
+              <%= link_to calendar_path(date: @date + 1.year), class: "btn btn-default" do %>
+              <i class="glyphicon glyphicon-forward"></i>
+              <% end %>
+            </div>
+            <div class="col-xs-6 col-centered">
+              <%= link_to calendar_path(date: @date - 1.month), class: "btn btn-default" do %>
+              <i class="glyphicon glyphicon-backward"></i>
+              <% end %>
+              <%= "#{@date.strftime("%B")} " %>
+              <%= link_to calendar_path(date: @date + 1.month), class: "btn btn-default" do %>
+              <i class="glyphicon glyphicon-forward"></i>
+              <% end %>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= calendar @date do |date| %>
+      <%= if @date.month == date.month
+           link_to date.day , events_path(date:date)
+        end %>
+      <% end %>
+  </div>
+</div>
+</div>
