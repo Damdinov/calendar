@@ -22,4 +22,4 @@
   .row
     .col-md-12
       = calendar @date do |date|
-        
+        = if @date.month == date.month link_to date.day , events_path(date:date) end
