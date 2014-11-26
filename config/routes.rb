@@ -1,5 +1,6 @@
 BootstrapAndRails::Application.routes.draw do
   
+  get "home/index"
   resources :events
 
     get "events/index"

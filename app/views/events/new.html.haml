@@ -1,0 +1,18 @@
+%h1 New event
+
+= form_for @event , remote: true do |f|
+  title: #{f.text_field :title}
+  %br/
+  place : #{f.text_field :place}
+  %br/
+  start date : #{f.datetime_field :startdate}
+  %br/
+  end date : #{f.datetime_field :enddate}
+  %br/
+  = f.submit
+
+= link_to 'Back', events_path
+
+
+
+
