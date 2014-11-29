@@ -11,11 +11,13 @@
   
       })
       .bind("ajax:success", function(evt, data, status, xhr){
-        var $form = $(this);
+      //  var $form = $(this);
+  
+  //ЧТО-ТО ВРОДЕ REDIRECT_TO!!!!!!!!
   
         // Reset fields and any validation errors, so form can be used again, but leave hidden_field values intact.
-        $form.find('textarea,input[type="text"],input[type="file"]').val("");
-        $form.find('div.validation-error').empty();
+  //      $form.find('textarea,input[type="text"],input[type="file"]').val("");
+    //    $form.find('div.validation-error').empty();
   
         // Insert response partial into page below the form.
         $('#comments').append(xhr.responseText);
