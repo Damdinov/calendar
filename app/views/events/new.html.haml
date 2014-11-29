@@ -1,6 +1,13 @@
+:javascript
+  $("shit").ready ->
+    $("#event").on("ajax:success", (e, data, status, xhr) ->
+      $("#event").append xhr.responseText
+     ).on "ajax:error", (e, xhr, status, error) ->
+      $("#event").append "<p>ERROR</p>"
+
 %h1 New event
 
-= form_for @event , remote: true do |f|
+= form_for @event ,id: "shit", remote: true do |f|
   title: #{f.text_field :title}
   %br/
   place : #{f.text_field :place}
@@ -9,10 +16,11 @@
   %br/
   end date : #{f.datetime_field :enddate}
   %br/
-  = f.submit
+  #{f.hidden_field :createtime, :value => @today}
+  %br/
 
-= link_to 'Back', events_path
+  = f.submit "ok" 
 
-
+= link_to 'Back', events_path(date:@date)
 
 
